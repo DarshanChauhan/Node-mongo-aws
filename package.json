@@ -1,0 +1,22 @@
+{
+  "name": "motabhai",
+  "version": "1.0.0",
+  "description": "For fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "Darshan Chauhan urf. Motabhai ❣️",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validation": "^4.1.1",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.12.2",
+    "nodemon": "^3.1.9"
+  }
+}
