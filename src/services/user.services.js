@@ -3,7 +3,7 @@ const User = require("../models/user.model");
 const createUser = async (userData) => {
   const existingEmail = await User.findOne({ email: userData.email });
   if (existingEmail) {
-    throw new Error("Email already exists");
+    throw new Error("Email already exists 👽🔴");
   }
   return await User.create(userData);
 };
