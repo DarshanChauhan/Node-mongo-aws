@@ -41,7 +41,7 @@ jobs:
             npm install
 
             # App already managed by PM2?
-            pm2 restart my-app || pm2 start npm --name "my-app" -- start
+            pm2 restart darshan || pm2 start npm --name "darshan" -- start
 
             # Save process list
             pm2 save
