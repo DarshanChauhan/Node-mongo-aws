@@ -2,7 +2,12 @@ const jwt = require("jsonwebtoken");
 const message = require("../constants/constants");
 
 const authMiddleware = (req, res, next) => {
-  if (req.url.startsWith(message.ROUTE_PREFIX)) return next();
+  const publicRoutes = ["/"];
+  if (
+    publicRoutes.includes(req.url) ||
+    req.url.startsWith(message.ROUTE_PREFIX)
+  )
+    return next();
 
   const authToken = req.headers.authorization?.split(" ")[1];
   if (!authToken) {

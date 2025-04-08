@@ -1,6 +1,5 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const { ValidationError } = require("express-validation");
 
 const authMiddleware = require("./src/middleware/middleware");
 const router = require("./src/routes/routes");

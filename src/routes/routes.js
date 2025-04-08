@@ -5,6 +5,9 @@ const bookRoutes = require("./book.routes");
 const comicBookRoutes = require("./comic-book.routes");
 const userRoute = require("./user.routes");
 router.use("/user", userRoute);
+router.use("/", (req, res) => {
+  res.status(200).json({ Message: "Hello Darshan 👑" });
+});
 router.use("/auth", authRoutes);
 router.use("/author", authorRoutes);
 router.use("/book", bookRoutes);
