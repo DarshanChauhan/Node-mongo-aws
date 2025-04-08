@@ -30,7 +30,7 @@ jobs:
           source: "."
           target: "/home/ubuntu/app"
 
-      - name: Run Remote SSH Commands
+      - name: Run Remote SSH Commands with PM2
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -39,5 +39,9 @@ jobs:
           script: |
             cd /home/ubuntu/app
             npm install
-            pkill node || true
-            nohup npm start > output.log 2>&1 &
+
+            # App already managed by PM2?
+            pm2 restart my-app || pm2 start npm --name "my-app" -- start
+
+            # Save process list
+            pm2 save
