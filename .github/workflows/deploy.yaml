@@ -38,6 +38,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/app
+            git fetch
+            git pull
             npm install
 
             # App already managed by PM2?
