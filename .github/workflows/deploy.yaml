@@ -36,6 +36,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./"
+          target: "/home/ubuntu/app"
           script: |
             cd /home/ubuntu/app
             git fetch
