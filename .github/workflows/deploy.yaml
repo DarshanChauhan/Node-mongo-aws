@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Deploy to EC2 via SSH
+      - name: Deploy to EC2 via SCP
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -36,16 +36,11 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./"
-          target: "/home/ubuntu/app"
           script: |
             cd /home/ubuntu/app
-            git fetch
-            git pull
             npm install
 
-            # App already managed by PM2?
-            pm2 restart darshan || pm2 start npm --name "darshan" -- start
-
-            # Save process list
+            # PM2 deploy
+            pm2 delete 0
+            pm2 start npm --name "darshan" -- start
             pm2 save
